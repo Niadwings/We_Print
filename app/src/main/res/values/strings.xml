@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MobilePayroll</string>
+    <string name="select">Status</string>
+    <string name="hint_admin">Admin Name</string>
+    <string name="hint_employee">Employee Name</string>
+    <string name="hint_email">email@gmail.com</string>
+    <string name="hint_phone">09xx-xxx-xxxx</string>
+    <string name="hint_department">department</string>
+    <string name="hint_status">status</string>
+    <string name="greetings">Welcome Admin,</string>
+
+    // DASHBOARD
+    <string name="dashboard_title1">Employee List</string>
+    <string name="dashboard_title2">Payslip List</string>
+    <string name="dashboard_title3">Payroll Computation</string>
+    <string name="dashboard_title4">Profile</string>
+
+    // Employee List
+    <string name="categorise1">All</string>
+    <string name="categorise2">Admin</string>
+    <string name="categorise3">Production</string>
+    <string name="categorise4">Support</string>
+    <string name="categorise5">Logistics</string>
+
+    // Other screen pages
+    <string name="sub_title1">Employee List</string>
+    <string name="sub_title2">Payslip List</string>
+    <string name="sub_title3">Payroll Computation</string>
+
+
+</resources>

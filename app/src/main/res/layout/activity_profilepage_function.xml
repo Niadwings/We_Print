@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_bg"
+    tools:context=".Profilepage_function">
+    
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:id="@+id/titleProfile"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text=" Profile"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:ems="10"
+            app:drawableStartCompat="@drawable/baseline_keyboard_arrow_left_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/admin_profpic"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/default_image"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleProfile">
+
+        </com.google.android.material.imageview.ShapeableImageView>
+
+        <TextView
+            android:id="@+id/adminName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="@string/hint_admin"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/admin_profpic"
+            app:layout_constraintEnd_toEndOf="@id/admin_profpic"
+            app:layout_constraintTop_toBottomOf="@id/admin_profpic"/>
+
+        <Button
+            android:id="@+id/EditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/darkblue"
+            android:gravity="center"
+            android:text="Edit Profile"
+            android:textColor="@color/white"
+            app:cornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adminName" />
+
+        <LinearLayout
+            android:id="@+id/containerbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/white_bg"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adminName">
+
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/labelEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Email"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/profileEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="email@gmail.com"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:gravity="center_vertical"
+                    tools:ignore="RtlCompat"/>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:alpha="0.5"
+                android:background="@color/gray"/>
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/labelJob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="Department"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/profileDepartment"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="department"
+                    android:textAlignment="viewEnd"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/lightred"
+            android:gravity="center"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:cornerRadius="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

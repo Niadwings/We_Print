@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".PayrollComputation">
+
+        <ScrollView
+            android:id="@+id/scrollViewPayroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:keepScreenOn="true"
+            android:overScrollMode="never"
+            android:scrollbars="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintPayroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:id="@+id/titlePayroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payroll Computation"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:text="Cancel"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/titlePayrollCompanyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Company Name"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayroll" />
+
+                <LinearLayout
+                    android:id="@+id/viewCompanyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayrollCompanyName">
+
+                    <TextView
+                        android:id="@+id/textCompanyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:padding="10dp"
+                        android:text="WePrint"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titleTitleSlip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Payslip Title"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/viewCompanyName" />
+
+                <LinearLayout
+                    android:id="@+id/viewTitleSlip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleTitleSlip">
+
+                    <TextView
+                        android:id="@+id/Payslip_Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:hint="title"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titlePayrollEmployeeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Employee Name"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/viewTitleSlip" />
+
+                <LinearLayout
+                    android:id="@+id/viewEmployeeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayrollEmployeeName">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/Payroll_EmpName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:hint="full name"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/EmpEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:hint="email@gmail.com"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:alpha="0.5"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/viewDesignationPayroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Department"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/Emp_Designation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:hint="department"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Employement Status"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/EmpStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:hint="@string/hint_status"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titlePayrollEarnings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Earnings"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/viewEmployeeName" />
+
+                <LinearLayout
+                    android:id="@+id/viewPayrollEarnings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayrollEarnings">
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeRateHr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Rate"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/EmployeeRate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeOT"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Overtime Hours"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/EmployeeOverTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/totalWeekLyHrs"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Total Weekly Hours"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeWeeklyHrs"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:hint="Overtime Hours"
+                            android:backgroundTint="@android:color/transparent"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/totalEmpDays"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Total Days"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeTotalDays"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:hint="Total Days of Work"
+                            android:backgroundTint="@android:color/transparent"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeBasicPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/BasicPayment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Basic Payment"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/EmployeeBasicPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeOverTimePay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Overtime Payment"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/EmployeeOverTimePay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeAddPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Additional Payment"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeAdditionalPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeSpecialAllowance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Special Allowance"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeSpecialAllowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:alpha="0.5"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/TotalEarnings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Total_Earnings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="TOTAL EARNINGS"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/DisplayTotalEarnings"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titlePayrollDeductions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Deductions"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/viewPayrollEarnings" />
+
+                <LinearLayout
+                    android:id="@+id/viewPayrollDeductions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayrollDeductions">
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeTax"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Witholding Tax"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeTax"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeSSS"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="SSS"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeSSS"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeePagIbig"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Pag-IBIG"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeePagIbig"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeePhilHealth"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="PhilHealth"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeePhilHealth"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:alpha="0.5"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeCashAdvance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/totaldeduct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Cash Advance"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeCashAdvance"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeMealAllowance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Meal Allowance"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeMealAllowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/titleEmployeeShop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="Shop"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/EmployeeShop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="0.00"
+                            android:inputType="numberDecimal"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:alpha="0.5"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/TotalDeductions"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/totaldeduct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:text="TOTAL DEDUCTIONS"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/DisplayTotalDeductions"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="5dp"
+                            android:backgroundTint="@android:color/transparent"
+                            android:hint="₱ 0.00"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/titlePayrollNetPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Net Pay"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/viewPayrollDeductions" />
+
+                <LinearLayout
+                    android:id="@+id/viewboxNetPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_bg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titlePayrollNetPay">
+
+                    <TextView
+                        android:id="@+id/DisplayNetPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@android:color/transparent"
+                        android:hint="₱ 0.00"
+                        android:padding="10dp"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rowLayerButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/viewboxNetPay">
+
+                    <Button
+                        android:id="@+id/saveComputationBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="100dp"
+                        android:layout_weight="0.50"
+                        android:backgroundTint="@color/brand_color"
+                        android:padding="23dp"
+                        android:textColor="@color/black"
+                        android:text="Save and View Payslip"
+                        android:textSize="16sp"
+                        app:cornerRadius="15dp" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </RelativeLayout>

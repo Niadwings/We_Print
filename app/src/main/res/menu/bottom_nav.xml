@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_employees"
+        android:icon="@drawable/round_people_24"
+        android:title="Employee"/>
+
+    <item
+        android:id="@+id/bottom_payslip"
+        android:icon="@drawable/baseline_receipt_long_24"
+        android:title="Payslip"/>
+
+    <item
+        android:id="@+id/bottom_payroll"
+        android:icon="@drawable/baseline_calculator_view_24"
+        android:title="Computation"/>
+
+    <item
+        android:id="@+id/bottom_profile"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="Profile"/>
+
+
+
+
+</menu>

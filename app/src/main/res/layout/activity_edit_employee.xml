@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EmployeeDisplay">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/empdetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp">
+
+            <TextView
+                android:id="@+id/titleEditEmpInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="Edit Information"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/baseline_keyboard_arrow_left_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/displayphoto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleEditEmpInfo"
+                app:shapeAppearanceOverlay="@style/roundImageView"
+                app:srcCompat="@drawable/emprofile_icon">
+
+            </com.google.android.material.imageview.ShapeableImageView>
+
+            <TextView
+                android:id="@+id/Payslip_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="35dp"
+                android:hint="@string/hint_employee"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/displayphoto"
+                app:layout_constraintTop_toBottomOf="@id/titleEditEmpInfo" />
+
+            <EditText
+                android:id="@+id/displayRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:hint="@string/hint_department"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintStart_toEndOf="@id/displayphoto"
+                app:layout_constraintTop_toBottomOf="@id/Payslip_Name" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/linedivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:alpha="0.5"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/displayphoto"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <TextView
+                android:id="@+id/titleStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:text="  Employement Status"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/round_person_pin_24"
+                app:layout_constraintTop_toBottomOf="@id/linedivider" />
+
+            <EditText
+                android:id="@+id/payslip_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/hint_status"
+                android:autofillHints=""
+                android:inputType="text"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintTop_toBottomOf="@id/titleStatus" />
+
+            <TextView
+                android:id="@+id/titleEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="  Email Address"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/baseline_email_24"
+                app:layout_constraintTop_toBottomOf="@id/payslip_status"/>
+
+            <EditText
+                android:id="@+id/payslip_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/hint_email"
+                android:autofillHints="email"
+                android:inputType="textEmailAddress"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintTop_toBottomOf="@id/titleEmail" />
+
+            <TextView
+                android:id="@+id/titlePhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="  Phone"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/round_phone_24"
+                app:layout_constraintTop_toBottomOf="@id/payslip_email" />
+
+            <EditText
+                android:id="@+id/display_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/hint_phone"
+                android:inputType="phone"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintTop_toBottomOf="@id/titlePhone"/>
+
+            <Button
+                android:id="@+id/btnUpdateChanges"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="@color/darkblue"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:text="Update Changes"
+                android:textSize="18sp"
+                app:cornerRadius="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
