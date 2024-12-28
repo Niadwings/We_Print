@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MobilePayroll"
         tools:targetApi="34">
         <activity
+            android:name=".AdminDashboard"
+            android:exported="false" />
+        <activity
             android:name=".ViewPayslip"
             android:exported="false" />
         <activity

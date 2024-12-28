@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class Signup extends AppCompatActivity {
         EditText editTextEmail = findViewById(R.id.textEmail);
         EditText editTextPassword = findViewById(R.id.textPassword);
         EditText editTextConfirmPassword = findViewById(R.id.textConfirmPassword);
+        Spinner roleSpinner = findViewById(R.id.role_spinner); // Role selection
         Button buttonSignUp = findViewById(R.id.signup_btn);
         TextView textViewLogin = findViewById(R.id.login_link);
 
@@ -49,6 +51,7 @@ public class Signup extends AppCompatActivity {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
                 String confirmPassword = editTextConfirmPassword.getText().toString().trim();
+                String role = roleSpinner.getSelectedItem().toString(); // Get selected role
 
                 if (TextUtils.isEmpty(fullName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
                     Toast.makeText(Signup.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
@@ -71,20 +74,17 @@ public class Signup extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    // Email sent, update UI accordingly
-                                                    saveUserDetailsToFirestore(fullName, email);
+                                                    saveUserDetailsToFirestore(fullName, email, role); // Pass role
                                                     Toast.makeText(Signup.this, "Verification email sent to " + email, Toast.LENGTH_SHORT).show();
                                                     startActivity(new Intent(Signup.this, MainActivity.class));
                                                     finish();
                                                 } else {
-                                                    // Error sending email
                                                     Toast.makeText(Signup.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
                                     }
                                 } else {
-                                    // Registration failed
                                     Toast.makeText(Signup.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -101,7 +101,7 @@ public class Signup extends AppCompatActivity {
         });
     }
 
-    private void saveUserDetailsToFirestore(String fullName, String email) {
+    private void saveUserDetailsToFirestore(String fullName, String email, String role) {
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
@@ -110,12 +110,14 @@ public class Signup extends AppCompatActivity {
             Map<String, Object> user = new HashMap<>();
             user.put("fullName", fullName);
             user.put("email", email);
+            user.put("role", role);
+
             documentReference.set(user)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-
+                                Toast.makeText(Signup.this, "User details saved successfully.", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(Signup.this, "Failed to save user details to Firestore.", Toast.LENGTH_SHORT).show();
                             }

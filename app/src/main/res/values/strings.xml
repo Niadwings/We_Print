@@ -28,4 +28,10 @@
     <string name="sub_title3">Payroll Computation</string>
 
 
+    <string-array name="role_options">
+        <item>User</item>
+        <item>Admin</item>
+    </string-array>
+
+
 </resources>

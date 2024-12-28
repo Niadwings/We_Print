@@ -24,78 +24,80 @@
     <LinearLayout
         android:id="@+id/layout_signup"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.550">
+        app:layout_constraintVertical_bias="0.500">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <EditText
+            android:id="@+id/textName"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_outline"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/textName"
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_outline"
-                android:ems="10"
-                android:hint="Name"
-                android:inputType="text"
-                android:padding="12dp"
-                android:textSize="14sp" />
+        <EditText
+            android:id="@+id/textEmail"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_outline"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/textEmail"
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_outline"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="12dp"
+        <EditText
+            android:id="@+id/textPassword"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_outline"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textSize="14sp" />
 
-                android:textSize="14sp" />
+        <EditText
+            android:id="@+id/textConfirmPassword"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_outline"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/textPassword"
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_outline"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/textConfirmPassword"
-                android:layout_width="325dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_outline"
-                android:ems="10"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+        <!-- Spinner for role selection -->
+        <Spinner
+            android:id="@+id/role_spinner"
+            android:layout_width="325dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_outline"
+            android:padding="12dp"
+            android:spinnerMode="dropdown"
+            android:entries="@array/role_options" />
 
     </LinearLayout>
 
@@ -116,7 +118,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/signup_btn"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,6 +141,5 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
