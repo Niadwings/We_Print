@@ -45,8 +45,8 @@ public class AdminDashboard extends AppCompatActivity {
 
         // Set up button click listener
         gotoProfilePage.setOnClickListener(v -> {
-            Intent GoToProfilePage = new Intent(AdminDashboard.this, Profilepage_function.class);
-            startActivity(GoToProfilePage);
+            Intent intent = new Intent(AdminDashboard.this, Profilepage_function.class);
+            startActivity(intent);
             finish();
         });
     }
